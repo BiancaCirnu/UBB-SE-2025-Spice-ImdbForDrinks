@@ -20,27 +20,31 @@ namespace App1.Repositories
         /// <summary>
         /// Initializes a new instance of the <see cref="UserRepo"/> class with default user data.
         /// </summary>
-        public UserRepo()
+        public static List<Role> BasicUserRoles = new List<Role>
         {
-            List<Role> basicUserRoles = new List<Role>
-            {
                 new Role(RoleType.User, "user")
-            };
-            List<Role> adminRoles = new List<Role>
+        };
+
+        public static List<Role> AdminRoles = new List<Role>
             {
                 new Role(RoleType.User, "user"),
                 new Role(RoleType.Admin, "admin"),
             };
-            List<Role> managerRoles = new List<Role>
+
+        public static List<Role> ManagerRoles = new List<Role>
             {
                 new Role(RoleType.User, "user"),
                 new Role(RoleType.Admin, "admin"),
                 new Role(RoleType.Manager, "manager"),
             };
-            List<Role> bannedUserRoles = new List<Role>
+
+        public static List<Role> BannedUserRoles = new List<Role>
             {
                 new Role(RoleType.Banned, "banned")
             };
+
+        public UserRepo()
+        {
             _usersList = new List<User>
             {
                 new User(
@@ -48,24 +52,24 @@ namespace App1.Repositories
                     emailAddress: "bianca.georgiana.cirnu@gmail.com",
                     fullName: "Bianca Georgiana Cirnu",
                     numberOfDeletedReviews: 2,
-                    HasSubmittedAppeal: true,
-                    assignedRoles: basicUserRoles
+                    hasSubmittedAppeal: true,
+                    assignedRoles: AdminRoles
                 ),
                 new User(
                     userId: 3,
                     emailAddress: "admin.one@example.com",
                     fullName: "Admin One",
                     numberOfDeletedReviews: 0,
-                    HasSubmittedAppeal: false,
-                    assignedRoles: adminRoles
+                    hasSubmittedAppeal: false,
+                    assignedRoles: BasicUserRoles
                 ),
                 new User(
                     userId: 5,
                     emailAddress: "admin.two@example.com",
                     fullName: "Admin Two",
                     numberOfDeletedReviews: 0,
-                    HasSubmittedAppeal: false,
-                    assignedRoles: adminRoles
+                    hasSubmittedAppeal: false,
+                    assignedRoles: AdminRoles
                 ),
             };
         }
